@@ -116,3 +116,32 @@ nav.main a[aria-current="page"]::after, nav.main a[aria-current="true"]::after {
 .theme-btn { width: 30px; height: 30px; border-radius: 50%; margin-left: 8px; }
 .theme-btn svg { width: 14px; height: 14px; }
 @media (max-width: 560px) { header.site .wrap.pg { padding: 0 12px; } nav.main a { padding: 8px 6px; font-size: 12.5px; } }
+
+/* larger type */
+body { font-size: 18px; }
+.lead { font-size: 19px; }
+.role { font-size: 13px; }
+.profile .status-chip { font-size: 11.5px; }
+ul.dots li { font-size: 16.5px; }
+.snapshot h3, .skillrow h3 { font-size: 11.5px; }
+.snapshot ul.dots li { font-size: 15px; }
+.links4 a, .links4 button { font-size: 14px; }
+a.card h3 { font-size: 18px; }
+a.card h3 small { font-size: 12.5px; }
+a.card p { font-size: 15px; }
+.chips span, .tag { font-size: 12.5px; }
+.exp b { font-size: 16.5px; }
+.exp time { font-size: 12.5px; }
+.exp p { font-size: 15.5px; }
+.body.center p { font-size: 17px; }
+.sk { font-size: 14px; }
+.stab, .tab { font-size: 13.5px; }
+.ghead span, .case-meta dt, .toc a, .metric span, .caption, .viewall, .btn, .go, .link { font-size: 12.5px; }
+.status, .hint, .err { font-size: 13.5px; }
+.form label { font-size: 11.5px; }
+.form input, .form textarea { font-size: 17px; }
+footer.site, footer.site .wrap.pg { font-size: 12.5px; }
+nav.main { font-size: 14.5px; }
+.logo { font-size: 21px; }
+.prose p, .prose li, .callout { font-size: 17.5px; line-height: 1.7; }
+@media (max-width: 560px) { nav.main a { font-size: 13.5px; } }

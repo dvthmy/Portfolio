@@ -121,7 +121,7 @@ footer.site { font-size: 11px; letter-spacing: .1em; color: var(--soft); backgro
 @media (prefers-reduced-motion: reduce) { .dot::after { animation: none; } }
 
 /* ===== single-column editorial layout (home) ===== */
-body.hr { --col: 680px; }
+body.hr { --col: 880px; }
 .wrap.pg, section.pg { max-width: var(--col); margin: 0 auto; border-left: 1px solid var(--line); border-right: 1px solid var(--line); position: relative; }
 section.pg { padding: 0; }
 .wrap.pg { padding: 0 24px; }
