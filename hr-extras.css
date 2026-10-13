@@ -145,3 +145,6 @@ nav.main { font-size: 14.5px; }
 .logo { font-size: 21px; }
 .prose p, .prose li, .callout { font-size: 17.5px; line-height: 1.7; }
 @media (max-width: 560px) { nav.main a { font-size: 13.5px; } }
+
+/* wider case-study column */
+:root { --max: 1160px; }
