@@ -122,11 +122,11 @@ footer.site { font-size: 11px; letter-spacing: .1em; color: var(--soft); backgro
 
 /* ===== single-column editorial layout (home) ===== */
 body.hr { --col: 680px; }
-.wrap.col, section.col { max-width: var(--col); margin: 0 auto; border-left: 1px solid var(--line); border-right: 1px solid var(--line); position: relative; }
-section.col { padding: 0; }
-.wrap.col { padding: 0 24px; }
-.wrap.col.nopad { padding: 0; }
-header.site .wrap.col { height: 56px; }
+.wrap.pg, section.pg { max-width: var(--col); margin: 0 auto; border-left: 1px solid var(--line); border-right: 1px solid var(--line); position: relative; }
+section.pg { padding: 0; }
+.wrap.pg { padding: 0 24px; }
+.wrap.pg.nopad { padding: 0; }
+header.site .wrap.pg { height: 56px; }
 header.site { border-bottom: 1px solid var(--line); }
 .band { height: 30px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: repeating-linear-gradient(135deg, var(--stripe) 0 1px, transparent 1px 8px); }
 main > .band:first-of-type { border-top: 0; }
@@ -200,7 +200,7 @@ a.card p { font-size: 13px; line-height: 1.55; color: var(--muted); margin: 0; }
 .skillrow { padding: 8px 24px 24px; display: grid; gap: 20px; }
 .skillrow h3 { font: 600 10px/1 var(--mono); letter-spacing: .18em; text-transform: uppercase; color: var(--soft); margin: 16px 0 10px; }
 
-footer.site .wrap.col { height: auto; padding: 22px 24px; text-align: center; font-size: 11px; color: var(--soft); }
+footer.site .wrap.pg { height: auto; padding: 22px 24px; text-align: center; font-size: 11px; color: var(--soft); }
 body.hr footer.site { background: none; border-top: 0; }
 @media (max-width: 560px) { nav.main a { padding: 10px 7px; letter-spacing: .06em; } }
 @media (prefers-reduced-motion: reduce) { .bn-dot, .bn-card { animation: none; } }

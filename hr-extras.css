@@ -96,3 +96,23 @@ a.card:hover .thumb.corner::after { opacity: 1; transform: translate(-50%, 0); }
 .profile .status-chip { display: inline-flex; }
 .prose .h3 { font: 600 11px/1 var(--mono); letter-spacing: .16em; text-transform: uppercase; color: var(--soft); margin: 26px 0 10px; }
 .bars span.neg { background: #dc4444; opacity: .85; }
+
+/* skill logos */
+.sk { gap: 10px; }
+.lg { flex: none; width: 22px; height: 22px; display: inline-grid; place-items: center; }
+.lg img { width: 18px; height: 18px; display: block; }
+:root:not([data-theme="light"]) .lg.dk img { filter: brightness(0) invert(1); }
+.lg.mono { width: auto; min-width: 26px; height: 22px; padding: 0 5px; border: 1px solid var(--line); border-radius: 5px; background: var(--chip); color: var(--text); font: 600 9.5px/1 var(--mono); letter-spacing: .02em; }
+
+/* compact header */
+header.site .wrap.pg { height: 46px; padding: 0 20px; }
+.logo { font: 400 19px/1 var(--serif); letter-spacing: 0; }
+.logo span { display: none; }
+nav.main { gap: 2px; font: 500 13px/1 var(--sans); text-transform: none; letter-spacing: 0; }
+nav.main a { padding: 8px 10px; border-radius: 0; background: transparent !important; position: relative; }
+nav.main a:hover { color: var(--text); }
+nav.main a[aria-current="page"], nav.main a[aria-current="true"] { color: var(--text); font-weight: 600; }
+nav.main a[aria-current="page"]::after, nav.main a[aria-current="true"]::after { content: ""; position: absolute; left: 10px; right: 10px; bottom: 1px; height: 1px; background: var(--text); }
+.theme-btn { width: 30px; height: 30px; border-radius: 50%; margin-left: 8px; }
+.theme-btn svg { width: 14px; height: 14px; }
+@media (max-width: 560px) { header.site .wrap.pg { padding: 0 12px; } nav.main a { padding: 8px 6px; font-size: 12.5px; } }
