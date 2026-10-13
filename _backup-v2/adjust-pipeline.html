@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Adjust reporting pipeline — Thao My</title>
+<meta name="description" content="Case study: a Python pipeline that pulls six months of cohort data across ten channels from Adjust into Google Sheets for daily game monitoring.">
+<script>document.documentElement.classList.add('js')</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+<meta name="theme-color" content="#F7F5F0">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="progress" aria-hidden="true"></div>
+
+<header class="site">
+  <div class="wrap">
+    <a class="logo" href="index.html">Thao My<span>.</span></a>
+    <nav class="main" aria-label="Main navigation">
+      <a href="index.html#work">Work</a>
+      <a href="index.html#projects">Projects</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+
+    <div class="case-hero">
+      <a class="back" href="index.html#work">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
+        All projects</a>
+      <h1 class="hero-in">Adjust reporting pipeline</h1>
+      <p class="lead hero-in" style="--d:140ms">A Python pipeline that pulls cohort data from Adjust and writes it into Google Sheets, so the team can monitor game growth and ad performance without manual exports.</p>
+      <dl class="case-meta hero-in" style="--d:260ms">
+        <div><dt>Role</dt><dd>Designed and built the pipeline</dd></div>
+        <div><dt>Timeline</dt><dd>May 2025 – present</dd></div>
+        <div><dt>Tools</dt><dd>Python, Adjust, Google Sheets</dd></div>
+        <div><dt>Scope</dt><dd>Top 100 apps · 10 channels · 6 months</dd></div>
+      </dl>
+    </div>
+
+    <div class="layout">
+      <aside class="toc" aria-label="Table of contents"><ol data-spy>
+        <li><a href="#challenge">Challenge</a></li>
+        <li><a href="#data">What it collects</a></li>
+        <li><a href="#build">How it works</a></li>
+        <li><a href="#reliable">Built to not lose work</a></li>
+        <li><a href="#dash">Dashboard</a></li>
+        <li><a href="#results">Results</a></li>
+      </ol></aside>
+
+      <div class="prose">
+
+        <section id="challenge" class="reveal">
+          <h2>Challenge</h2>
+          <p>To judge a game, you need to see more than installs. You need retention, time spent and revenue per user, broken down by channel and by month. The data lives in Adjust, and getting it by hand is slow and hard to repeat, while the team works in Google Sheets.</p>
+          <p class="callout"><b>To add:</b> <span class="todo">[How people got these numbers before, and how long it took]</span></p>
+        </section>
+
+        <section id="data" class="reveal">
+          <h2>What it collects</h2>
+          <p>The pipeline first finds the <strong>top 100 apps by installs</strong> over the last 30 days. Then, for each app, channel and month, it gathers six months of cohort data:</p>
+          <ul>
+            <li><strong>Installs</strong> and <strong>retention</strong> from day 1 up to day 30.</li>
+            <li><strong>Time spent per user</strong> across the first 30 days.</li>
+            <li><strong>Revenue per user</strong>, both all sources and in-app purchases only.</li>
+            <li><strong>ROAS</strong> from day 0 to day 30.</li>
+          </ul>
+          <p>It covers ten channels: Applovin, Organic, Google Ads, Unity Ads, Apple, Adjoe, Tapjoy, Aura from Unity, Mistplay and puzzleplay, in both a global and a US-only version.</p>
+        </section>
+
+        <section id="build" class="reveal">
+          <h2>How it works</h2>
+          <figure class="diagram">
+            <svg viewBox="0 0 760 130" role="img" aria-label="Data flow: Adjust, Python pipeline, Google Sheets with 24 tabs, Dashboard">
+              <path class="flow-line" d="M170 65H215M390 65H435M590 65H620"/>
+              <g class="node"><rect x="10" y="30" width="160" height="70" rx="10"/><text x="90" y="62" text-anchor="middle">Adjust</text><text class="sub" x="90" y="80" text-anchor="middle">Cohort data</text></g>
+              <g class="node key"><rect x="215" y="30" width="175" height="70" rx="10"/><text x="302" y="62" text-anchor="middle">Python pipeline</text><text class="sub" x="302" y="80" text-anchor="middle">Batches, retries, logging</text></g>
+              <g class="node"><rect x="435" y="30" width="155" height="70" rx="10"/><text x="512" y="62" text-anchor="middle">Google Sheets</text><text class="sub" x="512" y="80" text-anchor="middle">24 tabs</text></g>
+              <g class="node"><rect x="620" y="30" width="130" height="70" rx="10"/><text x="685" y="62" text-anchor="middle">Dashboard</text><text class="sub" x="685" y="80" text-anchor="middle">Daily monitoring</text></g>
+            </svg>
+            <figcaption>From source to viewer. Global and US runs write to the same spreadsheet.</figcaption>
+          </figure>
+        </section>
+
+        <section id="reliable" class="reveal">
+          <h2>Built to not lose work</h2>
+          <p>Long API pulls fail. So the pipeline was designed around that:</p>
+          <ul>
+            <li><strong>Save as you go.</strong> Each channel is written to its own tab as soon as it finishes, so a crash halfway keeps everything already done.</li>
+            <li><strong>Stay within API limits.</strong> Each metric group is split into two halves (days 0–15 and 16–30) and requested with up to three attempts.</li>
+            <li><strong>Stop on demand.</strong> Creating a stop file halts the run cleanly after the current channel.</li>
+            <li><strong>Visible progress.</strong> Every step logs its timing and row count, which makes failures easy to trace.</li>
+          </ul>
+        </section>
+
+        <section id="dash" class="reveal">
+          <h2>Dashboard</h2>
+          <p>Google Sheets is the source for a dashboard used for daily monitoring of game growth and advertising performance.</p>
+          <figure class="mock" style="margin-top:18px">
+            <div class="mock-bar"><i></i><i></i><i></i><span>Daily monitoring · illustration</span></div>
+            <div class="mock-body">
+              <div class="dash-kpis">
+                <div class="kpi"><small>Installs</small><b>—</b></div>
+                <div class="kpi"><small>D1 retention</small><b>—</b></div>
+                <div class="kpi"><small>D7 retention</small><b>—</b></div>
+                <div class="kpi"><small>ROAS D7</small><b>—</b></div>
+              </div>
+              <div class="bars reveal" aria-hidden="true">
+                <span style="height:35%;--d:0ms"></span><span style="height:52%;--d:60ms"></span><span style="height:44%;--d:120ms"></span><span style="height:68%;--d:180ms"></span><span style="height:58%;--d:240ms"></span><span style="height:82%;--d:300ms"></span><span style="height:74%;--d:360ms"></span><span style="height:92%;--d:420ms"></span>
+              </div>
+              <p class="caption">Illustration of the layout only. No real data is shown.</p>
+            </div>
+          </figure>
+          <p class="callout"><b>To add:</b> <span class="todo">[What the new-games daily dashboard shows, and one decision it helped the team make]</span></p>
+        </section>
+
+        <section id="results" class="reveal">
+          <h2>Results</h2>
+          <div class="metrics">
+            <div class="metric"><b>[ ? ]</b><span>Hours of manual work replaced per day or week</span></div>
+            <div class="metric"><b>[ ? ]</b><span>People checking the dashboard daily</span></div>
+            <div class="metric"><b>[ ? ]</b><span>One decision made because of the data</span></div>
+          </div>
+          <a class="next" href="ad-creative.html" style="margin-top:36px"><small>Previous case study</small><b>← Ad-creative operations platform</b></a>
+        </section>
+
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="site"><div class="wrap">© 2026 Doan Vo Thao My</div></footer>
+<script src="main.js"></script>
+</body>
+</html>

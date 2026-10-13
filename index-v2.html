@@ -1,0 +1,399 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Doan Vo Thao My — Product Owner</title>
+<meta name="description" content="Product Owner with a data background, applying analytics and AI to mobile game growth and LiveOps.">
+<meta name="theme-color" content="#ffffff">
+<script>document.documentElement.classList.add('js')</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#fff; --ink:#0a0a0a; --mute:#6b6b6b; --line:#e6e6e3; --panel:#f3f3f0;
+  --butter:#fcd96b; --peri:#b9c6ff; --dark:#0a0a0a;
+  --sans:"Inter Tight","Helvetica Neue",Arial,system-ui,sans-serif;
+  --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{background:var(--bg);color:var(--ink);font:300 16px/1.5 var(--sans);-webkit-font-smoothing:antialiased}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+.skip{position:absolute;left:-999px;top:8px;background:var(--butter);padding:8px 12px;border-radius:4px;z-index:100}
+.skip:focus{left:10px}
+
+/* top bar */
+.bar{position:fixed;z-index:50;top:10px;left:10px;right:10px;height:40px;background:var(--dark);color:#fff;border-radius:6px;display:flex;align-items:center;justify-content:space-between;padding:0 6px 0 12px}
+.logo{font-weight:800;letter-spacing:-.04em;font-size:19px;text-decoration:none;text-transform:uppercase}
+.bar nav{position:absolute;left:50%;display:flex;gap:16px;font-size:14px;font-weight:400}
+.bar nav a{text-decoration:none;opacity:.8}.bar nav a:hover{opacity:1}
+.cta-mini{display:flex;gap:3px;text-decoration:none;font-size:13px;font-weight:500}
+.cta-mini span{background:var(--butter);color:var(--ink);padding:5px 9px;border-radius:3px}
+.cta-mini i{font-style:normal;background:#fff;color:var(--ink);padding:5px 8px;border-radius:3px}
+@media(max-width:800px){.bar nav{display:none}}
+
+/* grid */
+.row{display:grid;grid-template-columns:1fr 1fr;gap:0 10px;padding:0 10px}
+.row>.l{padding-right:20px}
+@media(max-width:800px){.row{grid-template-columns:1fr}.row>.l{padding-right:0}}
+.tag{font:500 11px/1 var(--sans);letter-spacing:.06em;text-transform:uppercase}
+.h-xl{font-weight:300;font-size:clamp(44px,6.6vw,104px);line-height:.95;letter-spacing:-.05em}
+.h-lg{font-weight:300;font-size:clamp(38px,5vw,76px);line-height:.98;letter-spacing:-.045em}
+.sub{font-size:13px;color:var(--mute);margin-bottom:6px}
+.sec{border-top:1px solid var(--line);padding:56px 0 72px}
+
+/* hero */
+.hero{min-height:100svh;padding-top:90px;display:grid;grid-template-rows:1fr auto;border-top:0}
+.hero .row{align-content:start}
+.hero .l{display:flex;flex-direction:column;justify-content:space-between;padding-top:12px}
+.hero .lead{max-width:34ch;font-size:17px;line-height:1.45;margin-top:90px}
+.hero .scroll{padding:0 10px 24px;color:var(--mute);font-size:13px}
+.hero .scroll a{text-decoration:none}
+.hero .meta{font-size:13px;color:var(--mute);line-height:1.6}
+@media(max-width:800px){.hero .lead{margin-top:40px}.hero .l{order:2;margin-top:24px}}
+
+/* service-style blocks */
+.svc .l{display:flex;flex-direction:column;justify-content:space-between;min-height:320px}
+.svc .l .tag{margin-bottom:24px}
+.svc .l .blurb{max-width:30ch;font-size:14px;line-height:1.4}
+.svc .l dl{margin-top:36px}
+.svc dt{font-size:13px;color:var(--mute)}
+.svc dd{margin:0 0 14px;font-size:22px;font-weight:300;letter-spacing:-.02em}
+.svc .r .sub{margin-top:36px}
+.rows{list-style:none;padding:0;margin:0}
+.rows li{display:flex;justify-content:space-between;gap:16px;padding:5px 0;border-bottom:1px solid var(--line);font-size:14px;color:#3b3b3b}
+.rows li:first-child{border-top:1px solid var(--line)}
+.rows li b{font:400 11px var(--mono);color:#a3a3a3;align-self:center}
+.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;padding:0 10px;margin-top:32px}
+@media(max-width:1000px){.tiles{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.tiles{grid-template-columns:1fr}}
+.tile{position:relative;min-height:280px;border-radius:6px;background:var(--panel);padding:14px;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;text-decoration:none}
+.tile .tag{opacity:.7}
+.tile svg{width:100%;height:auto;display:block}
+.tile.peri{background:var(--peri)}.tile.dark{background:var(--dark);color:#fff}.tile.butter{background:var(--butter)}
+.tile .big{font-size:clamp(24px,2.4vw,34px);line-height:1;letter-spacing:-.04em;font-weight:300}
+.tile code{font:400 12px/1.5 var(--mono);word-break:break-all;color:#cfcfcf}
+.tile.cta{justify-content:space-between;transition:transform .35s var(--ease)}
+.tile.cta:hover{transform:translateY(-4px)}
+.tile.cta .foot{display:flex;justify-content:space-between;align-items:flex-end;font-size:20px;letter-spacing:-.02em}
+.tile.cta .foot i{font-style:normal;font-size:24px}
+
+/* projects */
+.proj{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:0 10px;margin-top:40px}
+@media(max-width:800px){.proj{grid-template-columns:1fr}}
+.proj .media{aspect-ratio:16/10;background:var(--panel);border-radius:6px;display:grid;place-items:center;overflow:hidden}
+.proj .media img{width:100%;height:100%;object-fit:contain}
+.proj h3{font-weight:300;font-size:28px;letter-spacing:-.03em;margin:14px 0 6px}
+.proj p{font-size:15px;color:#3b3b3b;max-width:52ch}
+.proj .chips{display:flex;gap:6px;flex-wrap:wrap;margin:10px 0 12px}
+.chip{font-size:12px;border:1px solid var(--line);border-radius:999px;padding:2px 10px;color:var(--mute)}
+.lnk{display:inline-block;margin-top:12px;font-size:14px;font-weight:500;text-decoration:underline;text-underline-offset:4px}
+
+/* experience */
+.exp .l p{max-width:30ch;font-size:14px;line-height:1.4}
+.marks{display:grid;grid-template-columns:repeat(2,1fr);margin-top:32px;border-top:1px solid var(--line);border-left:1px solid var(--line);max-width:380px}
+.marks span{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:26px 12px;text-align:center;font-weight:700;letter-spacing:-.03em;font-size:17px}
+.job{display:grid;grid-template-columns:1fr auto;gap:4px 16px;padding:14px 0;border-bottom:1px solid var(--line)}
+.job:first-child{border-top:1px solid var(--line)}
+.job small{grid-column:1;font-size:12px;color:var(--mute)}
+.job b{font-weight:300;font-size:26px;letter-spacing:-.03em;line-height:1.1}
+.job time{grid-row:1/3;grid-column:2;font:400 11px var(--mono);color:#8a8a8a;align-self:center;text-align:right}
+.job em{grid-column:1/3;font-style:normal;font-size:13px;color:var(--mute)}
+
+/* skills */
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;padding:0 10px;margin-top:40px}
+@media(max-width:1000px){.cards{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.cards{grid-template-columns:1fr}}
+.card{background:#f4f4f1;border-radius:6px;padding:14px 14px 18px;min-height:300px;display:flex;flex-direction:column}
+.card .ltr{font-size:64px;font-weight:300;letter-spacing:-.05em;line-height:1}
+.card h3{font-weight:500;font-size:14px;margin:auto 0 6px}
+.card p{font-size:14px;color:#3b3b3b}
+
+/* contact */
+.contact{background:var(--dark);color:#fff;padding:56px 0 24px;margin-top:0}
+.contact .h-xl{font-size:clamp(44px,6vw,92px)}
+.contact .l .tag{opacity:.7}
+.contact p.s{max-width:34ch;margin:22px 0 28px;color:#cfcfcf;font-size:15px}
+.btns{display:flex;gap:10px;flex-wrap:wrap}
+.btn{display:inline-flex;gap:3px;text-decoration:none;font-size:14px;font-weight:500;border:0;background:none;cursor:pointer;font-family:inherit;color:inherit;padding:0}
+.btn span{background:var(--butter);color:var(--ink);padding:10px 16px;border-radius:4px}
+.btn i{font-style:normal;background:#fff;color:var(--ink);padding:10px 12px;border-radius:4px}
+.btn.ghost span{background:transparent;color:#fff;border:1px solid #3a3a3a}
+.status{min-height:22px;margin-top:12px;font-size:13px;color:var(--butter)}
+.mail{margin-top:56px;padding-top:24px;border-top:1px solid #222}
+.mail a{font-size:clamp(24px,3vw,40px);letter-spacing:-.03em;text-decoration:none}
+.foot-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;padding:40px 10px 0;font-size:14px}
+.foot-cols h4{font-weight:300;color:#8a8a8a;font-size:13px;margin-bottom:8px}
+.foot-cols a{display:block;text-decoration:none;padding:2px 0}
+.copy{display:flex;justify-content:space-between;padding:40px 10px 0;font-size:11px;color:#8a8a8a;text-transform:uppercase;letter-spacing:.04em}
+.pause{background:none;border:1px solid #333;color:#ccc;border-radius:999px;padding:3px 12px;font:400 11px var(--sans);cursor:pointer}
+.marq{overflow:hidden;margin-top:28px;white-space:nowrap}
+.marq div{display:inline-block;font-weight:800;letter-spacing:-.05em;text-transform:uppercase;font-size:clamp(90px,16vw,240px);line-height:1;animation:mq 30s linear infinite;padding-right:.4em}
+.marq.paused div{animation-play-state:paused}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* motion */
+.js .rv{opacity:0;transform:translateY(14px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.js .rv.in{opacity:1;transform:none}
+.astar .path{stroke-dasharray:420;stroke-dashoffset:420;animation:tr 5s var(--ease) infinite}
+@keyframes tr{0%{stroke-dashoffset:420}55%,90%{stroke-dashoffset:0}100%{stroke-dashoffset:0;opacity:0}}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}.js .rv{opacity:1;transform:none;transition:none}
+  .marq div{animation:none}.astar .path{animation:none;stroke-dashoffset:0}.tile.cta{transition:none}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#work">Skip to work</a>
+
+<header class="bar">
+  <a class="logo" href="#top">Thao My</a>
+  <nav aria-label="Main">
+    <a href="#top">Home</a><a href="#work">Work</a><a href="#projects">Projects</a><a href="#experience">Experience</a>
+  </nav>
+  <a class="cta-mini" href="#contact"><span>Contact Me</span><i>↗</i></a>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="row">
+      <div class="l">
+        <p class="meta">Product Owner · Data · AI<br>Athena Studio, 2025 – present<br>Open to Game Producer roles</p>
+      </div>
+      <div>
+        <h1 class="h-xl">I build the tools mobile game teams run on.</h1>
+        <p class="lead">I'm a Product Owner with a Data Science background. At Athena Studio I build operations platforms and dashboards for the user acquisition and creative teams behind mobile games.</p>
+      </div>
+    </div>
+    <p class="scroll"><a href="#work">Scroll down ↓</a></p>
+  </section>
+
+  <!-- 01 WORK : ad-creative -->
+  <section class="sec svc" id="work">
+    <div class="row">
+      <div class="l">
+        <div>
+          <p class="tag">01 / Work</p>
+          <p class="blurb" style="margin-top:24px">A shared system that takes an ad creative from idea to launch-ready, replacing a Smartsheet and Excel process.</p>
+        </div>
+        <dl>
+          <dt>Role</dt><dd>Product Owner</dd>
+          <dt>Timeline</dt><dd>May 2025 – present</dd>
+        </dl>
+      </div>
+      <div class="r rv">
+        <h2 class="h-lg">Ad-creative operations platform</h2>
+        <p class="sub">What it covers</p>
+        <ul class="rows">
+          <li>Structured idea submission<b>01</b></li>
+          <li>Production tracking<b>02</b></li>
+          <li>AI pre-review<b>03</b></li>
+          <li>Human QC and approval<b>04</b></li>
+          <li>Standard creative naming<b>05</b></li>
+          <li>Campaign handoff and dashboards<b>06</b></li>
+        </ul>
+      </div>
+    </div>
+    <div class="tiles">
+      <div class="tile rv">
+        <span class="tag">Workflow</span>
+        <svg viewBox="0 0 220 60" aria-label="Six stage pipeline from idea to campaign end" role="img">
+          <g fill="none" stroke="#0a0a0a" stroke-width="1.2">
+            <rect x="1" y="18" width="30" height="24" rx="4"/><rect x="38" y="18" width="30" height="24" rx="4"/>
+            <rect x="75" y="18" width="30" height="24" rx="4" fill="#0a0a0a"/><rect x="112" y="18" width="30" height="24" rx="4"/>
+            <rect x="149" y="18" width="30" height="24" rx="4" stroke-dasharray="3 3"/><rect x="186" y="18" width="30" height="24" rx="4" stroke-dasharray="3 3"/>
+            <path d="M31 30h7M68 30h7M105 30h7M142 30h7M179 30h7"/>
+          </g>
+        </svg>
+        <span style="font-size:13px">Six stages, idea to campaign end</span>
+      </div>
+      <div class="tile peri rv">
+        <span class="tag">QC</span>
+        <p class="big">AI advises.<br>Humans decide.</p>
+        <span style="font-size:13px">Rubric score, then a 1–5 human rating</span>
+      </div>
+      <div class="tile dark rv">
+        <span class="tag" style="opacity:.6">Naming</span>
+        <code>BW-en-Overload-FOMO-DCO-Meme-GirlPhone-2633-9x16.jpg</code>
+        <span style="font-size:13px;color:#cfcfcf">One name everyone uses</span>
+      </div>
+      <a class="tile cta butter rv" href="ad-creative.html">
+        <span class="tag">Case study</span>
+        <span class="foot">Read case study<i>↗</i></span>
+      </a>
+    </div>
+  </section>
+
+  <!-- Adjust -->
+  <section class="sec svc">
+    <div class="row">
+      <div class="l">
+        <div>
+          <p class="tag">02 / Work</p>
+          <p class="blurb" style="margin-top:24px">Attribution data from Adjust, delivered to a daily dashboard without anyone copying numbers by hand.</p>
+        </div>
+        <dl>
+          <dt>Focus</dt><dd>Analytics and automation</dd>
+          <dt>Stack</dt><dd>Python, Google Sheets</dd>
+        </dl>
+      </div>
+      <div class="r rv">
+        <h2 class="h-lg">Adjust reporting pipeline</h2>
+        <p class="sub">What it does</p>
+        <ul class="rows">
+          <li>Pulls attribution data from Adjust<b>01</b></li>
+          <li>Cleans and shapes it in Python<b>02</b></li>
+          <li>Writes to Google Sheets<b>03</b></li>
+          <li>Feeds a daily growth dashboard<b>04</b></li>
+        </ul>
+      </div>
+    </div>
+    <div class="tiles">
+      <div class="tile rv">
+        <span class="tag">Output</span>
+        <svg viewBox="0 0 220 70" aria-label="Rising bar chart" role="img"><g fill="#0a0a0a"><rect x="8" y="44" width="22" height="22" rx="2" opacity=".3"/><rect x="42" y="34" width="22" height="32" rx="2" opacity=".45"/><rect x="76" y="40" width="22" height="26" rx="2" opacity=".6"/><rect x="110" y="22" width="22" height="44" rx="2" opacity=".8"/><rect x="144" y="28" width="22" height="38" rx="2" opacity=".9"/><rect x="178" y="8" width="22" height="58" rx="2"/></g></svg>
+        <span style="font-size:13px">Daily monitoring view</span>
+      </div>
+      <div class="tile peri rv">
+        <span class="tag">Flow</span>
+        <p class="big">Adjust → Python → Sheets → Dashboard</p>
+        <span style="font-size:13px">Automated end to end</span>
+      </div>
+      <div class="tile dark rv">
+        <span class="tag" style="opacity:.6">Why</span>
+        <p class="big" style="font-size:26px">Game growth and ad performance in one place.</p>
+        <span style="font-size:13px;color:#cfcfcf">Used for daily checks</span>
+      </div>
+      <a class="tile cta butter rv" href="adjust-pipeline.html">
+        <span class="tag">Case study</span>
+        <span class="foot">Read case study<i>↗</i></span>
+      </a>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section class="sec" id="projects">
+    <div class="row">
+      <div class="l"><p class="tag">03 / Other projects</p></div>
+      <div class="rv"><h2 class="h-lg">Built to learn how things work.</h2></div>
+    </div>
+    <div class="proj">
+      <article class="rv">
+        <div class="media"><img src="assets/mvz-menu.png" alt="Title art for Meow vs Zombies: a pixel-art cat holding a ball of yarn, surrounded by zombies" width="1024" height="625" loading="lazy"></div>
+        <h3>Meow vs Zombies</h3>
+        <div class="chips"><span class="chip">Java</span><span class="chip">OOP</span><span class="chip">Team of 5</span></div>
+        <p>A Plants vs Zombies clone for an OOP course. I worked on the bullet system (standard and freeze bullets that slow zombies), bullet-zombie collision, and UI and animation.</p>
+        <a class="lnk" href="https://github.com/nhhongan/meow-vs-zombie" target="_blank" rel="noopener">GitHub ↗</a>
+      </article>
+      <article class="rv">
+        <div class="media">
+          <svg class="astar" viewBox="0 0 300 180" role="img" aria-label="A* pathfinding: a ghost finds the shortest route around a wall to reach Pacman" style="width:100%;height:100%">
+            <rect width="300" height="180" fill="#f3f3f0"/>
+            <rect x="150" y="0" width="30" height="120" fill="#d9d9d4"/>
+            <g fill="#0a0a0a" opacity=".08"><rect x="30" y="30" width="60" height="30"/><rect x="90" y="30" width="60" height="30"/><rect x="30" y="60" width="30" height="30"/><rect x="120" y="60" width="30" height="90"/><rect x="150" y="120" width="60" height="30"/></g>
+            <polyline class="path" points="45,45 135,45 135,135 195,135 195,45 255,45" fill="none" stroke="#0a0a0a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="45" cy="45" r="12" fill="#6b6b6b"/>
+            <path d="M255 45 L272 36 A19 19 0 1 0 272 54 Z" transform="translate(-6 0)" fill="#fcd96b" stroke="#0a0a0a" stroke-width="1"/>
+          </svg>
+        </div>
+        <h3>Pacman with A* AI</h3>
+        <div class="chips"><span class="chip">JavaScript</span><span class="chip">A* pathfinding</span><span class="chip">Solo</span></div>
+        <p>A web game for an Algorithms and Data Structures course. The enemy uses A* to find the shortest path to the player and adapts when the target or obstacles change.</p>
+        <a class="lnk" href="https://github.com/dvthmy/Pacman_Game_DSA" target="_blank" rel="noopener">GitHub ↗</a>
+      </article>
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section class="sec exp" id="experience">
+    <div class="row">
+      <div class="l">
+        <p class="tag">04 / Experience</p>
+        <h2 class="h-lg" style="margin-top:24px">From data to product.</h2>
+        <p style="margin-top:20px">Final-year Data Science student who turns the needs of different teams into workflows and reporting tools that actually run.</p>
+        <div class="marks" aria-hidden="true">
+          <span>Athena Studio</span><span>Sun Media</span><span>HPT Vietnam</span><span>IU · VNU-HCM</span>
+        </div>
+      </div>
+      <div class="rv" style="padding-top:8px">
+        <div class="job"><small>Product Owner / Prompt Engineer</small><b>Athena Studio</b><time>May 2025 – Present</time></div>
+        <div class="job"><small>AI Video Generation</small><b>Sun Media</b><time>Mar 2026 – May 2026</time></div>
+        <div class="job"><small>IT Intern · Power BI, Power Automate</small><b>HPT Vietnam</b><time>Feb 2025 – Jun 2025</time></div>
+        <div class="job"><small>B.Sc. Data Science · GPA 3.45</small><b>International University – VNU-HCM</b><time>2022 – 2026</time><em>Thesis: food recommender system (Neo4j, CLIP, Gemma 3)</em></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section class="sec" style="padding-bottom:40px">
+    <div class="row">
+      <div class="l"><p class="tag">05 / Toolkit</p></div>
+      <div class="rv"><h2 class="h-lg">Where product, data and games meet.</h2></div>
+    </div>
+    <div class="cards">
+      <div class="card rv"><span class="ltr">A</span><h3>/ Product and operations</h3><p>Workflows, requirements, backlog, dashboards.</p></div>
+      <div class="card rv"><span class="ltr">B</span><h3>/ Data and automation</h3><p>Python, Excel and Sheets, Power BI, n8n, Power Automate, MySQL.</p></div>
+      <div class="card rv"><span class="ltr">C</span><h3>/ AI</h3><p>Prompt design, ChatGPT, Claude, Gemini, image and video generation tools.</p></div>
+      <div class="card rv"><span class="ltr">D</span><h3>/ Certifications</h3><p>Google AI Essentials, Google Prompting Essentials, Anthropic AI Fluency.</p></div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="contact" id="contact">
+  <div class="row">
+    <div class="l"><p class="tag">/ Contact</p></div>
+    <div class="rv">
+      <h2 class="h-xl">Looking for a Game Producer role.</h2>
+      <p class="s">I want to bring a product and data approach to operating and improving mobile games. Let's talk.</p>
+      <div class="btns">
+        <a class="btn" href="mailto:dvthaomy44@gmail.com"><span>Send an email</span><i>↗</i></a>
+        <button class="btn ghost" id="copy" type="button" data-email="dvthaomy44@gmail.com"><span>Copy email address</span></button>
+      </div>
+      <p class="status" id="status" role="status" aria-live="polite"></p>
+    </div>
+  </div>
+  <div class="row mail">
+    <div class="l"><p class="tag" style="opacity:.7">/ Email</p></div>
+    <div><a href="mailto:dvthaomy44@gmail.com">dvthaomy44@gmail.com</a></div>
+  </div>
+  <div class="foot-cols">
+    <div><h4>Navigation</h4><a href="#work">Work</a><a href="#projects">Projects</a><a href="#experience">Experience</a></div>
+    <div><h4>Elsewhere</h4><a href="https://github.com/dvthmy" target="_blank" rel="noopener">GitHub</a><a href="https://www.linkedin.com/in/my-doan-vo-thao-b977b428a/" target="_blank" rel="noopener">LinkedIn</a></div>
+    <div><h4>Contact</h4><a href="mailto:dvthaomy44@gmail.com">dvthaomy44@gmail.com</a></div>
+  </div>
+  <div class="copy"><span>© 2026 Doan Vo Thao My. All rights reserved.</span><button class="pause" id="pause" type="button" aria-pressed="false">Pause motion</button></div>
+  <div class="marq" id="marq" aria-hidden="true"><div>Product · Data · AI · Games · Product · Data · AI · Games · </div></div>
+</footer>
+
+<script>
+(function(){
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var els=document.querySelectorAll('.rv');
+  if('IntersectionObserver' in window && !reduce){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+    els.forEach(function(el){io.observe(el)});
+  } else { els.forEach(function(el){el.classList.add('in')}); }
+
+  var btn=document.getElementById('copy'),st=document.getElementById('status');
+  btn.addEventListener('click',function(){
+    var m=btn.dataset.email;
+    var done=function(ok){st.textContent=ok?'Copied '+m:'Could not copy. Please copy it manually: '+m;setTimeout(function(){st.textContent=''},3500)};
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(m).then(function(){done(true)},function(){done(false)})}else{done(false)}
+  });
+
+  var p=document.getElementById('pause'),mq=document.getElementById('marq');
+  p.addEventListener('click',function(){
+    var on=mq.classList.toggle('paused');
+    p.setAttribute('aria-pressed',String(on));
+    p.textContent=on?'Play motion':'Pause motion';
+    document.querySelectorAll('.astar .path').forEach(function(x){x.style.animationPlayState=on?'paused':'running'});
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Portfolio Color Demo</title>
+<style>
+  :root {
+    --bg: #0B0D14; --surface: #141826; --line: #252B3F;
+    --text: #E8EAF2; --muted: #8A90A8;
+    --accent: #7CFFB2; --accent2: #6C7CFF; --on-accent: #07110C;
+  }
+  * { box-sizing: border-box; margin: 0; }
+  body { background: var(--bg); color: var(--text); font: 16px/1.55 system-ui, -apple-system, "Segoe UI", sans-serif; transition: background .25s, color .25s; }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 24px 16px 64px; }
+
+  .picker { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
+  .picker button {
+    cursor: pointer; border: 1px solid var(--line); background: var(--surface); color: var(--text);
+    padding: 8px 14px; border-radius: 999px; font: inherit; font-size: 14px; display: flex; align-items: center; gap: 8px;
+  }
+  .picker button[aria-pressed="true"] { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+  .dot { width: 12px; height: 12px; border-radius: 50%; display: inline-block; }
+
+  nav { display: flex; justify-content: space-between; align-items: center; padding: 12px 0 40px; font-size: 14px; }
+  nav .logo { font-weight: 700; letter-spacing: .02em; }
+  nav .links { display: flex; gap: 20px; color: var(--muted); }
+
+  .hero h1 { font-size: clamp(32px, 6vw, 56px); line-height: 1.08; letter-spacing: -.02em; max-width: 16ch; }
+  .hero h1 em { font-style: normal; color: var(--accent); }
+  .hero p { color: var(--muted); max-width: 52ch; margin: 16px 0 28px; }
+  .cta { display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn { display: inline-block; padding: 12px 20px; border-radius: 10px; font-weight: 600; text-decoration: none; font-size: 15px; }
+  .btn.primary { background: var(--accent); color: var(--on-accent); }
+  .btn.ghost { border: 1px solid var(--line); color: var(--text); }
+
+  h2 { font-size: 13px; text-transform: uppercase; letter-spacing: .12em; color: var(--muted); margin: 56px 0 16px; font-weight: 600; }
+  .grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+  .card { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 20px; }
+  .card:hover { border-color: var(--accent); }
+  .card .thumb { height: 110px; border-radius: 10px; margin-bottom: 14px; background: linear-gradient(135deg, var(--accent), var(--accent2)); opacity: .9; }
+  .card h3 { font-size: 18px; margin-bottom: 4px; }
+  .card p { color: var(--muted); font-size: 14px; }
+  .tags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 12px; }
+  .tag { font-size: 12px; padding: 3px 10px; border-radius: 999px; border: 1px solid var(--line); color: var(--muted); }
+  .tag.hot { color: var(--accent2); border-color: var(--accent2); }
+  .stat { font-size: 28px; font-weight: 700; color: var(--accent); }
+
+  .swatches { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); }
+  .sw { border-radius: 12px; border: 1px solid var(--line); overflow: hidden; background: var(--surface); }
+  .sw .chip { height: 64px; }
+  .sw .meta { padding: 10px 12px; font-size: 12px; color: var(--muted); }
+  .sw .meta b { display: block; color: var(--text); font-size: 13px; }
+  code { font-family: ui-monospace, Menlo, Consolas, monospace; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="picker" id="picker" role="group" aria-label="Chọn bảng màu"></div>
+
+  <nav>
+    <span class="logo">Thảo My</span>
+    <span class="links"><span>Work</span><span>About</span><span>Contact</span></span>
+  </nav>
+
+  <section class="hero">
+    <h1>Product Owner dùng <em>data</em> để cải thiện game.</h1>
+    <p>Analytics, AI và LiveOps cho mobile game growth. Đã xây nền tảng vận hành creative và dashboard theo dõi hiệu quả quảng cáo.</p>
+    <div class="cta">
+      <a class="btn primary" href="#">Xem dự án</a>
+      <a class="btn ghost" href="#">Liên hệ</a>
+    </div>
+  </section>
+
+  <h2>Dự án chính</h2>
+  <div class="grid">
+    <div class="card">
+      <div class="thumb"></div>
+      <h3>Ad-creative platform</h3>
+      <p>Thay quy trình Smartsheet/Excel bằng workflow từ ý tưởng đến campaign.</p>
+      <div class="tags"><span class="tag hot">Product Owner</span><span class="tag">AI review</span><span class="tag">Workflow</span></div>
+    </div>
+    <div class="card">
+      <div class="thumb"></div>
+      <h3>Adjust pipeline &amp; dashboard</h3>
+      <p>Python kéo dữ liệu attribution về Sheets để theo dõi game hằng ngày.</p>
+      <div class="tags"><span class="tag hot">Analytics</span><span class="tag">Python</span><span class="tag">Sheets</span></div>
+    </div>
+    <div class="card">
+      <div class="stat">00%</div>
+      <h3>Chỗ trống cho số liệu</h3>
+      <p>Khi có số thật, mỗi case study sẽ có một chỉ số nổi bật như thế này.</p>
+    </div>
+  </div>
+
+  <h2>Bảng màu đang chọn</h2>
+  <div class="swatches" id="swatches"></div>
+</div>
+
+<script>
+  const palettes = [
+    { name: "Neon Arcade", bg: "#0B0D14", surface: "#141826", line: "#252B3F", text: "#E8EAF2", muted: "#8A90A8", accent: "#7CFFB2", accent2: "#6C7CFF", onAccent: "#07110C" },
+    { name: "Ember",       bg: "#0F0C0B", surface: "#1A1513", line: "#2E2623", text: "#F3EBE6", muted: "#9A8D86", accent: "#FF7A45", accent2: "#FFC857", onAccent: "#1A0B04" },
+    { name: "Violet Night",bg: "#0D0A14", surface: "#17121F", line: "#2A2238", text: "#EEE9F6", muted: "#9A90AE", accent: "#B388FF", accent2: "#FF6EC7", onAccent: "#12081F" },
+    { name: "Ice Cyan",    bg: "#08111A", surface: "#0F1B28", line: "#1D2E40", text: "#E6F0F7", muted: "#7F95A8", accent: "#4FD8FF", accent2: "#A0FFE0", onAccent: "#04141C" },
+    { name: "Paper (sáng)",bg: "#F6F4EF", surface: "#FFFFFF", line: "#E2DED4", text: "#15141A", muted: "#6B6874", accent: "#FF4D2E", accent2: "#3B3BFF", onAccent: "#FFFFFF" },
+    { name: "Candy Pastel (sáng)", bg: "#FFF8F3", surface: "#FFFFFF", line: "#F1DDD2", text: "#2A2030", muted: "#7E6F86", accent: "#FF6B9D", accent2: "#7C5CFF", onAccent: "#FFFFFF" },
+    { name: "Mint Fresh (sáng)",   bg: "#F2FAF6", surface: "#FFFFFF", line: "#D5EADF", text: "#10231B", muted: "#58756A", accent: "#0FA968", accent2: "#FFB020", onAccent: "#FFFFFF" },
+    { name: "Cobalt & Cream (sáng)", bg: "#FBF7EE", surface: "#FFFFFF", line: "#E6DFCB", text: "#0F1A3A", muted: "#5E6783", accent: "#2446F2", accent2: "#FF8A3D", onAccent: "#FFFFFF" },
+    { name: "Forest Moss",  bg: "#0A100D", surface: "#121B16", line: "#22332A", text: "#E7F0EA", muted: "#86A092", accent: "#B6F34A", accent2: "#35D19B", onAccent: "#0C1505" },
+    { name: "Rose Noir",    bg: "#120B0E", surface: "#1D1216", line: "#35212A", text: "#F6E9ED", muted: "#A58B95", accent: "#FF8FA3", accent2: "#F5C16C", onAccent: "#240A12" },
+    { name: "Mono Lime",    bg: "#0A0A0A", surface: "#141414", line: "#2A2A2A", text: "#F2F2F2", muted: "#8C8C8C", accent: "#D4FF3A", accent2: "#FFFFFF", onAccent: "#101400" }
+  ];
+  const keys = { bg:"--bg", surface:"--surface", line:"--line", text:"--text", muted:"--muted", accent:"--accent", accent2:"--accent2", onAccent:"--on-accent" };
+  const picker = document.getElementById("picker");
+  const swatches = document.getElementById("swatches");
+
+  function apply(i) {
+    const p = palettes[i], root = document.documentElement.style;
+    for (const k in keys) root.setProperty(keys[k], p[k]);
+    [...picker.children].forEach((b, j) => b.setAttribute("aria-pressed", String(j === i)));
+    swatches.innerHTML = ["bg","surface","text","muted","accent","accent2"].map(k =>
+      `<div class="sw"><div class="chip" style="background:${p[k]}"></div><div class="meta"><b>${k}</b><code>${p[k]}</code></div></div>`
+    ).join("");
+    try { localStorage.setItem("palette", i); } catch (e) {}
+  }
+
+  palettes.forEach((p, i) => {
+    const b = document.createElement("button");
+    b.type = "button";
+    b.innerHTML = `<span class="dot" style="background:${p.accent}"></span>${p.name}`;
+    b.onclick = () => apply(i);
+    picker.appendChild(b);
+  });
+
+  let start = 0;
+  try { start = Number(localStorage.getItem("palette")) || 0; } catch (e) {}
+  apply(start < palettes.length ? start : 0);
+</script>
+</body>
+</html>

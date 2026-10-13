@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ad-creative operations platform — Thao My</title>
+<meta name="description" content="Case study: an operations platform that takes ad creatives from idea to launch-ready for BookWise and Soulie, with AI pre-review and structured QC.">
+<script>document.documentElement.classList.add('js')</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+<meta name="theme-color" content="#F7F5F0">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="progress" aria-hidden="true"></div>
+
+<header class="site">
+  <div class="wrap">
+    <a class="logo" href="index.html">Thao My<span>.</span></a>
+    <nav class="main" aria-label="Main navigation">
+      <a href="index.html#work">Work</a>
+      <a href="index.html#projects">Projects</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+
+    <div class="case-hero">
+      <a class="back" href="index.html#work">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
+        All projects</a>
+      <h1 class="hero-in">Ad-creative operations platform</h1>
+      <p class="lead hero-in" style="--d:140ms">One shared system that takes an ad creative from idea to launch-ready for BookWise and Soulie, replacing a manual Smartsheet and Excel process.</p>
+      <dl class="case-meta hero-in" style="--d:260ms">
+        <div><dt>Role</dt><dd>Product Owner</dd></div>
+        <div><dt>Timeline</dt><dd>May 2025 – present</dd></div>
+        <div><dt>Worked with</dt><dd>User acquisition, Creative, QC</dd></div>
+        <div><dt>Apps</dt><dd>BookWise, Soulie</dd></div>
+        <div><dt>Status</dt><dd>Stages 1–4 live, 5–6 in progress</dd></div>
+      </dl>
+    </div>
+
+    <div class="layout">
+      <aside class="toc" aria-label="Table of contents"><ol data-spy>
+        <li><a href="#challenge">Challenge</a></li>
+        <li><a href="#role">Role</a></li>
+        <li><a href="#process">Workflow</a></li>
+        <li><a href="#qc">AI + human QC</a></li>
+        <li><a href="#decisions">Key decisions</a></li>
+        <li><a href="#status">Status</a></li>
+        <li><a href="#results">Results</a></li>
+      </ol></aside>
+
+      <div class="prose">
+
+        <section id="challenge" class="reveal">
+          <h2>Challenge</h2>
+          <p>Three teams touch every ad creative. User acquisition proposes the idea, the creative team produces it, QC checks it, and it comes back to UA to run. This was tracked in Smartsheet and Excel, with briefs scattered across chats and sheets.</p>
+          <p>That made it hard to answer basic questions: what exactly was the brief, which step is this creative in, which visual styles still have no file, and why did a creative fail review?</p>
+          <p class="callout"><b>To add:</b> <span class="todo">[A concrete example of the old pain point, such as a lost file, a naming mix-up, or how long things waited]</span></p>
+        </section>
+
+        <section id="role" class="reveal">
+          <h2>My role</h2>
+          <p>I'm the <strong>Product Owner</strong>. I owned the workflow and requirements: what each team needs at each step, what counts as "ready" to move on, and how a creative is judged and named.</p>
+          <ul>
+            <li>Gathered requirements from user acquisition, creative and quality review, and turned them into one workflow from idea submission to campaign handoff.</li>
+            <li>Defined what a complete idea brief contains and what each production status means.</li>
+            <li>Designed the AI review criteria and prompts used for automated pre-review and naming.</li>
+            <li>Built dashboards for review outcomes, pipeline status, ad spend and performance, and used them to refine the workflow after launch.</li>
+          </ul>
+        </section>
+
+        <section id="process" class="reveal">
+          <h2>The workflow</h2>
+          <p>Every creative moves through six stages. The first four run on real data today. The last two, Running Campaign and Campaign End, are still being built and currently use mock data.</p>
+          <figure class="diagram">
+            <svg viewBox="0 0 760 140" role="img" aria-label="Six-stage pipeline: Idea Generation, Wait for Production, Wait for Approval, Wait for Running Ads, Running Campaign, Campaign End. The last two are in progress.">
+              <path class="flow-line" d="M105 70H135M235 70H265M365 70H395M495 70H525M625 70H655"/>
+              <g class="node"><rect x="5" y="35" width="100" height="70" rx="10"/><text x="55" y="66" text-anchor="middle">Idea</text><text class="sub" x="55" y="84" text-anchor="middle">Generation</text></g>
+              <g class="node"><rect x="135" y="35" width="100" height="70" rx="10"/><text x="185" y="66" text-anchor="middle">Production</text><text class="sub" x="185" y="84" text-anchor="middle">Wait for</text></g>
+              <g class="node key"><rect x="265" y="35" width="100" height="70" rx="10"/><text x="315" y="66" text-anchor="middle">QC</text><text class="sub" x="315" y="84" text-anchor="middle">AI + human</text></g>
+              <g class="node"><rect x="395" y="35" width="100" height="70" rx="10"/><text x="445" y="66" text-anchor="middle">Hypothesis</text><text class="sub" x="445" y="84" text-anchor="middle">Wait for ads</text></g>
+              <g class="node todo"><rect x="525" y="35" width="100" height="70" rx="10"/><text x="575" y="66" text-anchor="middle">Running</text><text class="sub" x="575" y="84" text-anchor="middle">In progress</text></g>
+              <g class="node todo"><rect x="655" y="35" width="100" height="70" rx="10"/><text x="705" y="66" text-anchor="middle">Campaign</text><text class="sub" x="705" y="84" text-anchor="middle">End · in progress</text></g>
+            </svg>
+            <figcaption>Dashed boxes are not finished yet. The highlighted stage is where AI supports the reviewer.</figcaption>
+          </figure>
+
+          <figure class="mock" style="margin-top:22px">
+            <div class="mock-bar"><i></i><i></i><i></i><span>Production sub-stages · illustration</span></div>
+            <div class="mock-body">
+              <div class="board sm">
+                <div class="col"><h4>Pending</h4><i></i><i></i></div>
+                <div class="col"><h4>In process</h4><i></i><i></i></div>
+                <div class="col"><h4>Review</h4><i></i></div>
+                <div class="col"><h4>Delivered</h4><i></i></div>
+                <div class="col ai"><h4>Approved</h4><i></i></div>
+                <div class="mover" aria-hidden="true"></div>
+              </div>
+              <p class="caption">Each idea moves through pending, in process, review, done, delivered and approved, so the team can see where it is stuck. Illustration only, not real data.</p>
+            </div>
+          </figure>
+        </section>
+
+        <section id="qc" class="reveal">
+          <h2>AI plus human QC</h2>
+          <p>When a creative is handed over, the system opens a QC batch and treats every file as its own creative to be scored. QC has two layers:</p>
+          <ul>
+            <li><strong>AI pre-review</strong> scores the creative against a rubric and flags problems such as brand, policy, technical, copy or video issues.</li>
+            <li><strong>Human review</strong> gives the final 1–5 rating and can edit the rubric notes. A creative only moves on if it clears the pass threshold, is not rejected, and has a usable file.</li>
+          </ul>
+          <p>After QC, the system generates a standard name so everyone refers to the same creative the same way:</p>
+          <p class="callout"><b>Example</b> <code>BW-en-Overload-FOMO-DCO-Meme-GirlPhone-2633-9x16.jpg</code><br>
+          <span class="meta">App · language · persona · angle · hook · style · visible content · week · aspect ratio · variant code</span></p>
+        </section>
+
+        <section id="decisions" class="reveal">
+          <h2>Key decisions</h2>
+          <ul>
+            <li><strong>A structured idea card instead of a free-form brief.</strong> Persona, pain point, angle, hook, CTA, visual style and format are required fields, so creative gets the context to produce without asking again.</li>
+            <li><strong>Keep reference files separate from deliverables.</strong> Files are attached per visual style, so it is obvious which style still has no finished file.</li>
+            <li><strong>AI advises, humans decide.</strong> AI gives a score and a verdict, but a person makes the final call, which keeps accountability clear.</li>
+            <li><strong>Group creatives into hypotheses before launch.</strong> A creative is tied to the thing UA wants to test, so results can later be read as learnings, such as which hook pulled users in, which art style converted, and which concept kept flopping.</li>
+          </ul>
+          <p class="callout"><b>To add:</b> <span class="todo">[One change you made after launch because of what the dashboard showed: what you saw, what you changed, what happened]</span></p>
+        </section>
+
+        <section id="status" class="reveal">
+          <h2>Where it stands</h2>
+          <p>Stages 1 to 4, creative naming, QC analytics and the creative log are running on real data. Still in progress: connecting ad platforms for real spend and ROAS, and the full life cycle of a hypothesis after its campaign runs (dates, result, takeaway).</p>
+        </section>
+
+        <section id="results" class="reveal">
+          <h2>Results</h2>
+          <p>Real numbers will replace the boxes below.</p>
+          <div class="metrics">
+            <div class="metric"><b>[ ? ]</b><span>Time from idea to campaign, before and after</span></div>
+            <div class="metric"><b>[ ? ]</b><span>Creatives processed per week</span></div>
+            <div class="metric"><b>[ ? ]</b><span>People and teams using it daily</span></div>
+            <div class="metric"><b>[ ? ]</b><span>Share of creatives caught by AI pre-review</span></div>
+          </div>
+          <a class="next" href="adjust-pipeline.html" style="margin-top:36px"><small>Next case study</small><b>Adjust reporting pipeline →</b></a>
+        </section>
+
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="site"><div class="wrap">© 2026 Doan Vo Thao My</div></footer>
+<script src="main.js"></script>
+</body>
+</html>
